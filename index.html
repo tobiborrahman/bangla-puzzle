@@ -33,10 +33,15 @@
 					<li>Log in</li>
 				</ul>
 				<div class="flex justify-center items-center">
-					<i
-						id="cartIcon"
-						class="fa-solid fa-cart-shopping mr-5 text-xl"
-					></i>
+					<div class="relative">
+						<i
+							id="cartIcon"
+							class="fa-solid fa-cart-shopping mr-5 text-xl"
+						></i>
+						<span
+							class="total-item absolute text-[12px] -top-[7px] left-[17px] bg-amber-500 text-white px-1 rounded-md"
+						></span>
+					</div>
 					<button
 						class="w-full py-2 px-6 font-semibold border border-amber-500/30 border-amber-500 rounded bg-amber-500/10 duration-500 text-amber-500"
 					>
@@ -48,11 +53,14 @@
 
 		<!-- Card Holder Section -->
 		<section id="cartSection" class="relative">
-			<div class="w-[300px] h-[100vh] bg-red-200 fixed right-0 top-[0%]">
+			<div class="w-[300px] h-[90vh] bg-red-200 fixed right-0 top-[0%]">
 				<div
 					class="flex justify-between items-center bg-white py-3 px-2"
 				>
-					<i class="fa-solid fa-cart-shopping mr-5 text-xl"></i>
+					<div class="flex">
+						<i class="fa-solid fa-cart-shopping mr-5 text-xl"></i>
+						<p><span class="total-item"></span> Item</p>
+					</div>
 					<button
 						id="closeButton"
 						class="-py-[.4] px-1 rounded border border-amber-500/30"
@@ -63,6 +71,11 @@
 
 				<!-- Cards in cart summary -->
 				<div id="cart-summary"></div>
+				<div class="absolute top-[100%] mt-3">
+					<span id="cart-total-price" class="text-lg font-bold ml-3"
+						>Place Order 0$</span
+					>
+				</div>
 			</div>
 		</section>
 
@@ -70,7 +83,7 @@
 		<section
 			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pl-20 gap-3 pr-80 my-10"
 		>
-			<div class="bg-gray-100 p-5">
+			<div class="bg-gray-100 card-item p-5">
 				<img
 					class="card-img"
 					src="https://media.istockphoto.com/id/1416033500/photo/tasty-hamburger-on-a-dark-background.webp?b=1&s=170667a&w=0&k=20&c=tezxHml8fnB0fTaotUG9kPbrOsY5G7c19NHwuInXHp4="
@@ -80,7 +93,36 @@
 					Cheese Burger
 				</h1>
 				<p class="font-semibold pb-3">
-					<span class="price text-amber-500">69</span>$/Each
+					<span class="price text-amber-500">10</span>$/Each
+				</p>
+				<p>
+					This is very crispy and tasty burger whithin a reasonable
+					price.
+				</p>
+
+				<button
+					class="add-to-cart-btn w-full py-2 font-semibold border rounded my-3 text-white bg-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 duration-500 hover:text-amber-500"
+				>
+					Add to Cart
+				</button>
+
+				<button
+					class="w-full py-2 font-semibold border border-amber-500/30 border-amber-500 rounded bg-amber-500/10 duration-500 text-amber-500"
+				>
+					Customize
+				</button>
+			</div>
+			<div class="bg-gray-100 card-item p-5">
+				<img
+					class="card-img"
+					src="https://media.istockphoto.com/id/1416033500/photo/tasty-hamburger-on-a-dark-background.webp?b=1&s=170667a&w=0&k=20&c=tezxHml8fnB0fTaotUG9kPbrOsY5G7c19NHwuInXHp4="
+					alt=""
+				/>
+				<h1 class="text-xl heading font-semibold pt-3">
+					Cheese Burger
+				</h1>
+				<p class="font-semibold pb-3">
+					<span class="price text-amber-500">20</span>$/Each
 				</p>
 				<p>
 					This is very crispy and tasty burger whithin a reasonable
@@ -98,7 +140,7 @@
 					Customize
 				</button>
 			</div>
-			<div class="bg-gray-100 p-5">
+			<div class="bg-gray-100 card-item p-5">
 				<img
 					class="card-img"
 					src="https://media.istockphoto.com/id/1416033500/photo/tasty-hamburger-on-a-dark-background.webp?b=1&s=170667a&w=0&k=20&c=tezxHml8fnB0fTaotUG9kPbrOsY5G7c19NHwuInXHp4="
@@ -108,35 +150,7 @@
 					Cheese Burger
 				</h1>
 				<p class="font-semibold pb-3">
-					<span class="price text-amber-500">169</span>$/Each
-				</p>
-				<p>
-					This is very crispy and tasty burger whithin a reasonable
-					price.
-				</p>
-
-				<button
-					class="add-to-cart-btn w-full py-2 font-semibold border rounded my-3 text-white bg-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30 duration-500 hover:text-amber-500"
-				>
-					Add to Cart
-				</button>
-				<button
-					class="w-full py-2 font-semibold border border-amber-500/30 border-amber-500 rounded bg-amber-500/10 duration-500 text-amber-500"
-				>
-					Customize
-				</button>
-			</div>
-			<div class="bg-gray-100 p-5">
-				<img
-					class="card-img"
-					src="https://media.istockphoto.com/id/1416033500/photo/tasty-hamburger-on-a-dark-background.webp?b=1&s=170667a&w=0&k=20&c=tezxHml8fnB0fTaotUG9kPbrOsY5G7c19NHwuInXHp4="
-					alt=""
-				/>
-				<h1 class="text-xl heading font-semibold pt-3">
-					Cheese Burger
-				</h1>
-				<p class="font-semibold pb-3">
-					<span class="price text-amber-500">269</span>$/Each
+					<span class="price text-amber-500">30</span>$/Each
 				</p>
 				<p>
 					This is very crispy and tasty burger whithin a reasonable
