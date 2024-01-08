@@ -10,6 +10,15 @@ cartIcon.addEventListener('click', () => {
 	cartSection.classList.toggle('hidden');
 });
 
+// Get all "Add to Cart" buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+addToCartButtons.forEach((addButton) => {
+	addButton.addEventListener('click', () => {
+		cartSection.classList.remove('hidden');
+	});
+});
+
 const totalItemSpan = document.querySelector('.total-item');
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -18,13 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	let totalPrice = 0;
 	let totalItems = 0;
 
-	// Get all "Add to Cart" buttons
-	const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-	// const totalItemSpan = document.querySelector('.total-item');
+	// const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
 	addToCartButtons.forEach((addButton) => {
 		addButton.addEventListener('click', function () {
-			// const totalItemSpan = document.querySelector('.total-item');
 			if (!addButton.classList.contains('disabled')) {
 				const card = addButton.closest('.card-item');
 				const productName = card.querySelector('.heading').textContent;
@@ -33,25 +39,31 @@ document.addEventListener('DOMContentLoaded', function () {
 				);
 
 				const cartItem = document.createElement('div');
-				cartItem.classList.add('border', 'm-3', 'p-2', 'flex');
+				cartItem.classList.add(
+					'border',
+					'm-3',
+					'p-2',
+					'flex',
+					'rounded'
+				);
 				cartItem.innerHTML = `
-			<img class="w-[70px] h-[90px]" src="${
-				card.querySelector('img').src
-			}" alt="${productName}" />
-			<div class="ml-2 relative">
-			  <h1 class="font-semibold">${productName}</h1>
-			  <p class="text-[13px]">
-				<span class="price text-amber-500">${productPrice}</span>/Each
-			  </p>
-			  <div class="flex bg-white w-[70px] rounded items-center mt-2">
-				<span class="minus cursor-pointer bg-gray-100 py-0 px-2 border">-</span>
-				<span class="num px-1">01</span>
-				<span class="plus cursor-pointer bg-gray-100 py-0 px-2 border">+</span>
-			  </div>
-			  <span class="total-price text-amber-500 font-semibold text-">Total: $${productPrice}</span>
-			  <button class="delete-btn bg-gray-50 text-yellow-500 text-[10px] text-white absolute -top-[24px] -right-[90px] px-1 py-[.7px] rounded mt-2"><i class="fa-solid fa-trash-can"></i></button>
-			</div>
-		  `;
+				<img class="w-[70px] h-[90px] rounded" src="${
+					card.querySelector('img').src
+				}" alt="${productName}" />
+				<div class="ml-3 relative text-white">
+				<h1 class="font-semibold">${productName}</h1>
+				<p class="text-[13px]">
+					<span class="price">${productPrice}</span>$/Each
+				</p>
+				<div class="flex justify-center ml-2 w-[68px] rounded items-center text-black mt-2">
+					<span class="minus cursor-pointer bg-gray-100 py-0 px-2 border h-7 rounded-l">-</span>
+					<span class="num px-3 bg-white">1</span>
+					<span class="plus cursor-pointer bg-gray-100 py-0 px-2 border h-7 rounded-r">+</span>
+				</div>
+				<span class="total-price text-white font-semibold absolute top-[77px] -right-[107px]">${productPrice}$</span>
+				<button class="delete-btn bg-white  text-[12px] text-white absolute -top-[26px] -right-[116px] px-1 py-[.7px] rounded mt-2"><i class="fa-solid fa-trash-can text-[#52b788]"></i></button>
+				</div>
+			`;
 
 				cartSummary.appendChild(cartItem);
 
@@ -71,9 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
 					const quantity = parseInt(quantitySpan.textContent, 10);
 					quantitySpan.textContent = quantity + 1;
 					totalPrice += productPrice;
-					totalSpan.textContent = `Total: $${
+					totalSpan.textContent = `${
 						productPrice * quantitySpan.textContent
-					}`;
+					}$`;
 					updateCartTotalPrice();
 				});
 
@@ -82,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
 					if (quantity > 1) {
 						quantitySpan.textContent = quantity - 1;
 						totalPrice -= productPrice;
-						totalSpan.textContent = `Total: $${
+						totalSpan.textContent = `${
 							productPrice * quantitySpan.textContent
-						}`;
+						}$`;
 						updateCartTotalPrice();
 					}
 				});
