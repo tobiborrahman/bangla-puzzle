@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	let totalPrice = 0;
 	let totalItems = 0;
 
-	// const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-
 	addToCartButtons.forEach((addButton) => {
 		addButton.addEventListener('click', function () {
 			if (!addButton.classList.contains('disabled')) {
