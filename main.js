@@ -10,15 +10,17 @@ cartIcon.addEventListener('click', () => {
 	cartSection.classList.toggle('hidden');
 });
 
-// Get all "Add to Cart" buttons
+// Getting all "Add to Cart" buttons
 const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
+// Click event for adding the cards to cart section
 addToCartButtons.forEach((addButton) => {
 	addButton.addEventListener('click', () => {
 		cartSection.classList.remove('hidden');
 	});
 });
 
+// Total item span for counting items in the cart
 const totalItemSpan = document.querySelector('.total-item');
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				);
 
 				const cartItem = document.createElement('div');
+
 				cartItem.classList.add(
 					'border',
 					'm-3',
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					'flex',
 					'rounded'
 				);
+
 				cartItem.innerHTML = `
 				<img class="w-[70px] h-[90px] rounded" src="${
 					card.querySelector('img').src
@@ -61,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				<span class="total-price text-white font-semibold absolute top-[77px] -right-[107px]">${productPrice}$</span>
 				<button class="delete-btn bg-white  text-[12px] text-white absolute -top-[26px] -right-[116px] px-1 py-[.7px] rounded mt-2"><i class="fa-solid fa-trash-can text-[#52b788]"></i></button>
 				</div>
-			`;
+				`;
 
 				cartSummary.appendChild(cartItem);
 
