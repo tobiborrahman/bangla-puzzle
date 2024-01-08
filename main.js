@@ -3,11 +3,11 @@ const cartSection = document.getElementById('cartSection');
 const closeButton = document.getElementById('closeButton');
 
 closeButton.addEventListener('click', () => {
-	cartSection.classList.toggle('hidden');
+	cartSection.classList.toggle('show');
 });
 
 cartIcon.addEventListener('click', () => {
-	cartSection.classList.toggle('hidden');
+	cartSection.classList.toggle('show');
 });
 
 // Getting all "Add to Cart" buttons
@@ -16,7 +16,7 @@ const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 // Click event for adding the cards to cart section
 addToCartButtons.forEach((addButton) => {
 	addButton.addEventListener('click', () => {
-		cartSection.classList.remove('hidden');
+		cartSection.classList.add('show');
 	});
 });
 

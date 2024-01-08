@@ -2,3 +2,11 @@
 	background: gray !important;
 	color: white !important;
 }
+
+#cartSection {
+	display: none; /* Initially hide the cartSection */
+}
+
+#cartSection.show {
+	display: block; /* Show the cartSection when the show class is added */
+}
