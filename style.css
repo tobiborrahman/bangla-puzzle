@@ -4,9 +4,9 @@
 }
 
 #cartSection {
-	display: none; /* Initially hide the cartSection */
+	display: none;
 }
 
 #cartSection.show {
-	display: block; /* Show the cartSection when the show class is added */
+	display: block;
 }
